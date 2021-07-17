@@ -1,98 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Copy to Clipboard</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Copy to Clipboard</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    }
-
-    .title {
-      padding: 15px;
-      text-align: center;
-    }
-
-    .content {
-      width: 500px;
-      margin: 0 auto;
-      padding: 30px;
-      border: 1px solid tomato;
-      margin-bottom: 25px;
-      border-radius: 9px;
-    }
-
-    .element {
-      margin: 20px 0;
-    }
-
-    .element hr {
-      margin-top: 10px;
-    }
-
-    .btn-copy {
-      display: block;
-      width: 80px;
-      height: 24px;
-      margin: 0 auto;
-    }
-
-    .result {
-      display: block;
-      text-align: center;
-      margin-top: 15px;
-    }
-
-  </style>
-</head>
-<body>
-  <h2 class="title">Content to copy</h2>
-  <div class="content" id="content">
-    <div class="element">
-      <strong>Nome</strong>
-      <p>Jonathan S. Machado</p>
-      <hr>
-    </div>
-
-    <div class="element">
-      <strong>E-mail</strong>
-      <p>jonathansmachado@gmail.com</p>
-      <hr>
-    </div>
-
-    <div class="element">
-      <strong>Cidade</strong>
-      <p>Montenegro/RS</p>
-      <hr>
-    </div>
-  </div>
-  <button class="btn-copy" onclick="copyToClipboard('content')">Copy</button>
-  <span class="result"></span>
-
-  <script>
-    function copyToClipboard(containerID) {
-      const range = document.createRange();
-      range.selectNode(document.getElementById(containerID));
-      window.getSelection().removeAllRanges();
-      window.getSelection().addRange(range);
-
-      const result = document.getElementsByClassName('result')[0];
-      
-      if (document.execCommand('copy')) {
-        result.textContent = 'Content copied!';
-      
-      } else {
-        result.textContent = 'Error on copy content!'
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
       }
 
-      window.getSelection().removeAllRanges();
-    }
-  </script>
-</body>
+      .title {
+        padding: 15px;
+        text-align: center;
+      }
+
+      .content {
+        width: 500px;
+        margin: 0 auto;
+        padding: 30px;
+        border: 1px solid tomato;
+        margin-bottom: 25px;
+        border-radius: 9px;
+      }
+
+      .element {
+        margin: 20px 0;
+      }
+
+      .element hr {
+        margin-top: 10px;
+      }
+
+      .btn-copy {
+        display: block;
+        width: 80px;
+        height: 24px;
+        margin: 0 auto;
+      }
+
+      .result {
+        display: block;
+        text-align: center;
+        margin-top: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 class="title">Content to copy</h2>
+    <div class="content" id="content">
+      <div class="element">
+        <strong>Nome</strong>
+        <p>Jonathan S. Machado</p>
+        <hr />
+      </div>
+
+      <div class="element">
+        <strong>E-mail</strong>
+        <p>jonathansmachado@gmail.com</p>
+        <hr />
+      </div>
+
+      <div class="element">
+        <strong>Cidade</strong>
+        <p>Montenegro/RS</p>
+        <hr />
+      </div>
+    </div>
+    <button class="btn-copy" onclick="copyToClipboard('content')">Copy</button>
+    <span class="result"></span>
+
+    <script>
+      function copyToClipboard(containerID) {
+        const range = document.createRange();
+        range.selectNode(document.getElementById(containerID));
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+
+        const result = document.getElementsByClassName("result")[0];
+
+        if (document.execCommand("copy")) {
+          result.textContent = "Content copied!";
+        } else {
+          result.textContent = "Error on copy content!";
+        }
+
+        window.getSelection().removeAllRanges();
+      }
+    </script>
+  </body>
 </html>
